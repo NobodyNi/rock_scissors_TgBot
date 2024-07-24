@@ -1,5 +1,5 @@
 import random
-from rock_scissors_TgBot.lexicon.lexicon_ru import LEXICON_RU
+from rock_scissors_TgBot.lexicon.lexicon_ru import LEXICON_RU, COUNTER
 
 
 def get_bot_choice() -> str:
@@ -24,7 +24,13 @@ def get_winner(user_choice: str, bot_choice: str) -> str:
         'lizard': ['paper', 'spock']
     }
     if bot_choice == user_choice:
+        COUNTER['draw'] += 1
+        COUNTER['total_games'] += 1
         return 'nobody_won'
     elif bot_choice in rules[user_choice]:
+        COUNTER['wins'] += 1
+        COUNTER['total_games'] += 1
         return 'user_won'
+    COUNTER['lose'] += 1
+    COUNTER['total_games'] += 1
     return 'bot_won'

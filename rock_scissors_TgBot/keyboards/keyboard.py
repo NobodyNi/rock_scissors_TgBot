@@ -4,10 +4,11 @@ from rock_scissors_TgBot.lexicon.lexicon_ru import LEXICON_RU
 
 button_yes = KeyboardButton(text=LEXICON_RU['yes_button'])
 button_no = KeyboardButton(text=LEXICON_RU['no_button'])
+button_stat = KeyboardButton(text=LEXICON_RU['stat'])
 
 yes_no_kb_builder = ReplyKeyboardBuilder()
 
-yes_no_kb_builder.row(button_yes, button_no, width=2)
+yes_no_kb_builder.row(button_yes, button_no, button_stat, width=2)
 
 yes_no_kb: ReplyKeyboardMarkup = yes_no_kb_builder.as_markup(
     one_time_keyboard=True,
@@ -28,3 +29,4 @@ game_kb_builder.row(button_1, button_2, button_3,
 game_kb: ReplyKeyboardMarkup = game_kb_builder.as_markup(
     resize_keybboard=True
 )
+
