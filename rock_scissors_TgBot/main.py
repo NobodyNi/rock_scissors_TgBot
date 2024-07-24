@@ -24,7 +24,7 @@ async def main():
         token=config.tg_bot.token,
         default=DefaultBotProperties(parse_mode=ParseMode.HTML)
     )
-    dp = Dispatcher
+    dp = Dispatcher()
 
     dp.include_router(user_handlers.router)
     dp.include_router(other_handlers.router)
